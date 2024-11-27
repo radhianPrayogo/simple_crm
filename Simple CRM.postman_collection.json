@@ -1,0 +1,709 @@
+{
+	"info": {
+		"_postman_id": "321bfd1b-85f6-4469-b59f-bf76a96fae44",
+		"name": "Simple CRM",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28920745"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "superadmin@simplecrm.com",
+									"description": "superadmin",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "S4dm!n123",
+									"description": "superadmin",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "manager@simplecrm.com",
+									"description": "manager",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "password",
+									"value": "M4n@ger!",
+									"description": "manager",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "email",
+									"value": "employee@simplecrm.com",
+									"description": "employee",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "password",
+									"value": "Empl0yee!",
+									"description": "employee",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "email",
+									"value": "fellow@simplecrm.com",
+									"description": "fellow",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "password",
+									"value": "F@llow123",
+									"description": "fellow",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/api/login",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "logout",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/logout",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Company",
+			"item": [
+				{
+					"name": "list",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "page",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "per_page",
+									"value": "10",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/api/company",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"company"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "company_name",
+									"value": "High Five Ltd.",
+									"description": "required",
+									"type": "text"
+								},
+								{
+									"key": "company_phone",
+									"value": "0822223333",
+									"description": "required",
+									"type": "text"
+								},
+								{
+									"key": "company_email",
+									"value": "contact@highfive.net",
+									"description": "required",
+									"type": "text"
+								},
+								{
+									"key": "manager_name",
+									"value": "Luca Maarten",
+									"description": "required",
+									"type": "text"
+								},
+								{
+									"key": "manager_email",
+									"value": "maarten@highfive.net",
+									"description": "required",
+									"type": "text"
+								},
+								{
+									"key": "manager_phone",
+									"value": "081113223",
+									"description": "required",
+									"type": "text"
+								},
+								{
+									"key": "manager_password",
+									"value": "M4n@ger!",
+									"description": "required",
+									"type": "text"
+								},
+								{
+									"key": "manager_address",
+									"value": "4th Avenue Boulevard",
+									"description": "optional",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/api/company/create",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"company",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "company_name",
+									"value": "PT. High Five",
+									"type": "text"
+								},
+								{
+									"key": "company_phone",
+									"value": "0822123344",
+									"type": "text"
+								},
+								{
+									"key": "company_email",
+									"value": "contact@highfive.com",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/api/company/update/{{company_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"company",
+								"update",
+								"{{company_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/company/delete/{{company_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"company",
+								"delete",
+								"{{company_id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Employee",
+			"item": [
+				{
+					"name": "list",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "page",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "per_page",
+									"value": "10",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/api/employee",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"employee"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "type",
+									"value": "fellow",
+									"description": "option: manager/employee/fellow",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "Simon Klein",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "0811223344",
+									"type": "text"
+								},
+								{
+									"key": "address",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "simon@mailinator.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "P3trC@ch",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/api/employee/create",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"employee",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "detail",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/employee/detail/{{employee_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"employee",
+								"detail",
+								"{{employee_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "type",
+									"value": "fellow",
+									"description": "option: manager/employee/fellow",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "Petr Cech",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "0812345678",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "petr@cech.com",
+									"type": "text"
+								},
+								{
+									"key": "address",
+									"value": "Boulevard St. 4th Avenue",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/api/employee/update/{{employee_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"employee",
+								"update",
+								"{{employee_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/employee/delete/{{employee_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"employee",
+								"delete",
+								"{{employee_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "profile",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/employee/profile",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"employee",
+								"profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Profile",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Luca Maarten",
+									"description": "required",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "08100112233",
+									"description": "required",
+									"type": "text"
+								},
+								{
+									"key": "address",
+									"value": "Lorem Ipsum St. 4th Avenue",
+									"description": "optional",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "maarten@highfive.net",
+									"description": "required",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "",
+									"description": "optional",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/api/employee/update-profile",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"employee",
+								"update-profile"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:8000",
+			"type": "default"
+		},
+		{
+			"key": "jwt_token",
+			"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzMyNjg5MTY0LCJleHAiOjE3MzI2OTI3NjQsIm5iZiI6MTczMjY4OTE2NCwianRpIjoiMjZicHNLWXBVajJkeVJaOCIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3Iiwicm9sZSI6InN1cGVyLWFkbWluIn0.qIIMTopi4IlA4E2xEvscLU8zD0IftG0ceYqf1jgSRZs",
+			"type": "default"
+		},
+		{
+			"key": "company_id",
+			"value": "1",
+			"type": "default"
+		},
+		{
+			"key": "employee_id",
+			"value": "3",
+			"type": "default"
+		}
+	]
+}
