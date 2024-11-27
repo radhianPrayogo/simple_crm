@@ -19,6 +19,10 @@
 - run **php artisan migrate**
 - run **php artisan db:seed**
 
+## API Documentations
+
+- Api documentation in postman collection **Simple CRM.postman_collection.json**
+
 
 
 
