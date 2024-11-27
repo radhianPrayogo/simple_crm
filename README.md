@@ -21,7 +21,7 @@
 
 ## API Documentations
 
-- Api documentation in postman collection **Simple CRM.postman_collection.json**
+https://documenter.getpostman.com/view/28920745/2sAYBVjCSr
 
 
 
