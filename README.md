@@ -21,7 +21,6 @@
 
 ### API Postman Collections 
 
-- https://api.postman.com/collections/28920745-321bfd1b-85f6-4469-b59f-bf76a96fae44?access_key=PMAT-01JDPY6A2PKS95CB598WN2Y9MY
 
 
 
